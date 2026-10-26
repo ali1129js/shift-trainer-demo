@@ -1,0 +1,43 @@
+{
+  "name": "shift-trainer-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "guard": "node scripts/leak-guard.mjs . --exclude package-lock.json",
+    "guard:history": "git log -p --all -- . \":(exclude)package-lock.json\" | node scripts/leak-guard.mjs --stdin",
+    "prebuild": "npm run guard",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "pretest": "npm run guard",
+    "test": "vitest run",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.104.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "wouter": "^3.13.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.1",
+    "vite": "^6.4.4",
+    "vitest": "^3.2.7"
+  }
+}
