@@ -19,7 +19,7 @@ for (let i = 0; i < args.length; i++) {
   else if (args[i] === "--exclude") excludes.add(path.normalize(args[++i]));
   else dir = args[i];
 }
-const SKIP_DIRS = new Set(["node_modules", "dist", ".git"]);
+const SKIP_DIRS = new Set(["node_modules", "dist", ".git", ".vercel"]);
 const BANNED_FILE = [
   /logo/i,
   /cross/i,
